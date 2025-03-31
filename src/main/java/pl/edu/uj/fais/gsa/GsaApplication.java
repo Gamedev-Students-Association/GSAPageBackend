@@ -1,0 +1,13 @@
+package pl.edu.uj.fais.gsa;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class GsaApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(GsaApplication.class, args);
+    }
+
+}
