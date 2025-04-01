@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import java.time.LocalDateTime;
 
 @AllArgsConstructor
@@ -12,8 +13,8 @@ import java.time.LocalDateTime;
 @Getter @Setter
 
 @Entity
-@Table(name = "member")
-public class Member {
+@Table(name = "admin")
+public class Admin {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,26 +22,27 @@ public class Member {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    private String nrAlbumu;
-    private String photo;
-    private String name;
-    private String secondName;
-    private String surname;
-    private String position;
-    private String email;
-    private String about;
+    @OneToOne
+    @JoinColumn(name = "member_id", foreignKey = @ForeignKey(name = "FK_admin_member"))
+    private Member member;
 
-    private LocalDateTime memberSince;
-    private LocalDateTime memberUntil;
+    private String login;
+    private String password;
+    private Permission permission;
+
+    private LocalDateTime hasAdminSince;
+    private LocalDateTime hasAdminUntil;
+
+    @PreUpdate
+    public void onUpdate(){
+        this.updatedAt = LocalDateTime.now();
+    }
+
 
     @PrePersist
     public void onCreate(){
         this.createdAt = LocalDateTime.now();
     }
 
-    @PreUpdate
-    public void onUpdate(){
-        this.updatedAt = LocalDateTime.now();
-    }
 
 }

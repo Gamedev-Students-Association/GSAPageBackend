@@ -13,6 +13,11 @@ import java.util.List;
 @Getter @Setter
 public class GSAEvent {
 
+    private int id;
+
+
+//    like project type enum
+
     private String titlePhoto;
     private HashMap<Integer,String> photos;
     private String title;

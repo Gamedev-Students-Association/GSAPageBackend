@@ -17,6 +17,7 @@ public class Section {
     private String logo;
     private String name;
     private Member leader;
+// is cyclic or not and etc
     private Date startDate;
     private Date endDate;
     private String description;

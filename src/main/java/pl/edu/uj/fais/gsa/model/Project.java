@@ -22,6 +22,9 @@ public class Project {
     private String content;
     private Link link;
 
+//    add ability to store shader
+
+
     private void addPhoto(String photo){
         photos.put(photos.size(),photo);
     }
