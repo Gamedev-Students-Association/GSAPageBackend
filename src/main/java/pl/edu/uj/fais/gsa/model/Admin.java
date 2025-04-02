@@ -28,7 +28,7 @@ public class Admin {
 
     private String login;
     private String password;
-    private Permission permission;
+    private PermissionType permissionType;
 
     private LocalDateTime hasAdminSince;
     private LocalDateTime hasAdminUntil;

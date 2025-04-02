@@ -1,5 +1,5 @@
 package pl.edu.uj.fais.gsa.model;
 
-public enum Permission {
+public enum PermissionType {
     FULL
 }

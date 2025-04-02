@@ -23,6 +23,9 @@ public class GSANews {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
+    @Enumerated(EnumType.STRING)
+    private OwnershipType ownershipType;
+
     private String titlePhoto;
 
     @ElementCollection
@@ -31,12 +34,23 @@ public class GSANews {
     @Column(name = "photo")
     private HashMap<Integer,String> photos;
 
-    // how to store blob
-    // add gif and video
+    @ElementCollection
+    @CollectionTable(name = "news_videos", joinColumns = @JoinColumn(name = "news_id"))
+    @MapKeyColumn(name = "video_id")
+    @Column(name = "video")
+    private HashMap<Integer,String> videos;
+
+
+    @ElementCollection
+    @CollectionTable(name = "news_gifs", joinColumns = @JoinColumn(name = "news_id"))
+    @MapKeyColumn(name = "gif_id")
+    @Column(name = "gif")
+    private HashMap<Integer,String> gifs;
 
 //    like project type enum
     private String title;
     private String content;
+    private LocalDateTime date;
 
     private void addPhoto(String photo){
         photos.put(photos.size(),photo);

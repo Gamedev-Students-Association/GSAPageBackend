@@ -13,7 +13,7 @@ import java.util.HashMap;
 public class Project {
 
     // make links to media files inside content
-    private ProjectType type;
+    private OwnershipType type;
     private String titlePhoto;
     private HashMap<Integer,String> photos;
     private HashMap<Integer,String> gifs;
