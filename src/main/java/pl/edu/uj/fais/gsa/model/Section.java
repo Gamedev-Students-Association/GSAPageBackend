@@ -42,6 +42,7 @@ public class Section {
     private String description;
 
     @OneToMany
+    @JoinColumn(name = "section_id", foreignKey = @ForeignKey(name = "FK_section_project"))
     private List<Project> project;
 
 

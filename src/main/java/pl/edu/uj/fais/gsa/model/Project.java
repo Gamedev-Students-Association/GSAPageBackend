@@ -12,7 +12,6 @@ import java.util.HashMap;
 @Getter @Setter
 public class Project {
 
-    // make links to media files inside content
     private OwnershipType type;
     private String titlePhoto;
     private HashMap<Integer,String> photos;
@@ -22,7 +21,6 @@ public class Project {
     private String content;
     private Link link;
 
-//    add ability to store shader
 
 
     private void addPhoto(String photo){

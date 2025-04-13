@@ -18,22 +18,12 @@ public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-    // add ability to register as assotioation member, check skladki czy aktywny i td.
-//    think about it cause seems not nessessary, but for adding new member it is
-    private String email;
-    private String password;
-
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    private String nrAlbumu;
-    private String photo;
+    private String discordId;
     private String name;
-    private String secondName;
     private String surname;
-    private String position;
-    private String about;
 
     private LocalDateTime memberSince;
     private LocalDateTime memberUntil;

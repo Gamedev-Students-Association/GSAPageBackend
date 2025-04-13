@@ -28,6 +28,10 @@ public class GSANews {
 
     private String titlePhoto;
 
+    @ManyToOne
+    @JoinColumn(name = "shader_id", foreignKey = @ForeignKey(name = "FK_news_shader"))
+    private Shader shader;
+
     @ElementCollection
     @CollectionTable(name = "news_photos", joinColumns = @JoinColumn(name = "news_id"))
     @MapKeyColumn(name = "photo_id")
