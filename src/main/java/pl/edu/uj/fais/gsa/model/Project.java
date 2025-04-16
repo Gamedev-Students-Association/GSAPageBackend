@@ -12,8 +12,7 @@ import java.util.HashMap;
 @Getter @Setter
 public class Project {
 
-    // make links to media files inside content
-    private ProjectType type;
+    private OwnershipType type;
     private String titlePhoto;
     private HashMap<Integer,String> photos;
     private HashMap<Integer,String> gifs;
@@ -21,6 +20,8 @@ public class Project {
     private String title;
     private String content;
     private Link link;
+
+
 
     private void addPhoto(String photo){
         photos.put(photos.size(),photo);

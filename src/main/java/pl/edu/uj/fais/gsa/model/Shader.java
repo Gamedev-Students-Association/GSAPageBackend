@@ -5,15 +5,16 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import java.time.LocalDateTime;
 
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter @Setter
 
 @Entity
-@Table(name = "link")
-public class Link {
+@Table(name = "shaders")
+public class Shader {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,17 +22,23 @@ public class Link {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    private String logo;
     private String name;
-    private String url;
+    private String path;
+
 
     @PrePersist
-    public void onCreate(){
-        this.createdAt = LocalDateTime.now();
+    public void prePersist() {
+        createdAt = LocalDateTime.now();
     }
 
     @PreUpdate
-    public void onUpdate(){
-        this.updatedAt = LocalDateTime.now();
+    public void preUpdate() {
+        updatedAt = LocalDateTime.now();
     }
+
+//    mb in such way but i more prefer store like link to file
+//    @Lob
+//    private String code;
+
+
 }

@@ -8,28 +8,29 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
-import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter @Setter
-public class GSAEvent {
 
+@Entity
+@Table(name = "news")
+public class GSANews {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
     @Enumerated(EnumType.STRING)
     private OwnershipType ownershipType;
-    @Enumerated(EnumType.STRING)
-    private ImportanceType importanceType;
 
     private String titlePhoto;
 
     @ManyToOne
     @JoinColumn(name = "shader_id", foreignKey = @ForeignKey(name = "FK_news_shader"))
     private Shader shader;
-
 
     @ElementCollection
     @CollectionTable(name = "news_photos", joinColumns = @JoinColumn(name = "news_id"))
@@ -50,23 +51,14 @@ public class GSAEvent {
     @Column(name = "gif")
     private HashMap<Integer,String> gifs;
 
-
-
+//    like project type enum
     private String title;
     private String content;
-
-    @Enumerated(EnumType.STRING)
-    private EventFrequencyType eventFrequencyType;
-    private int interval;
-
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
-    private String location;
+    private LocalDateTime date;
 
     private void addPhoto(String photo){
         photos.put(photos.size(),photo);
     }
-
     private void removePhoto(int index){
         photos.remove(index);
     }
@@ -80,6 +72,5 @@ public class GSAEvent {
     public void onCreate(){
         this.createdAt = LocalDateTime.now();
     }
-
 
 }
